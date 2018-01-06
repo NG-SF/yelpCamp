@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 mongoose.Promise = global.Promise;
 
 let camproundSchema = new mongoose.Schema({
