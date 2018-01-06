@@ -75,7 +75,8 @@ app.get("/campgrounds/:id/comments/new", function(req, res) {
 });
 
 app.post("/campgrounds/:id/comments", function(req, res){
-   Campground.findById(req.params.id, function(err, camp){
+   Campground.findById(req.params.id, function(err, campground){
+       console.log("this is id before create", campground._id, "this is comments ", campground.comments);
        if (err) {
            console.error(err);
            res.redirect("/campgrounds");
@@ -84,9 +85,12 @@ app.post("/campgrounds/:id/comments", function(req, res){
                 if (err) {
                     console.error(err);
                 } else {
-                    camp.comments.push(comment);
-                    camp.save();
-                    res.redirect("/campgrounds/" + camp._id);
+                    campground.comments.push(comment);
+                    campground.save(function(err, camp){
+                    if (err) {console.log(err);}
+                    else {console.log(camp);}
+                  });
+                    res.redirect("/campgrounds/" + campground._id);
                 }
             });
        }

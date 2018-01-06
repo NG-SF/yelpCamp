@@ -34,19 +34,23 @@ function seedDB() {
         console.log(err); 
         } else { 
           console.log("added a campground"); 
-          //Create a comment
-          Comment.create({
-            text: "This place is the best!!!",
-            author: "Harry Potter"
-            }, function(err, comment) {
-              if (err) { 
-                console.log(err);
-                } else {
-                  campground.comments.push(comment);
-                  campground.save();
-                  console.log("created new comment");
-                }
-            });
+          
+          //   //Create  comment
+          // Comment.create({
+          //   text: "This is test comment!!!",
+          //   author: "Snape"
+          //   }, function(err, comment) {
+          //     if (err) { 
+          //       console.log(err);
+          //       } else {
+          //         campground.comments.push(comment);
+          //         campground.save(function(err, camp){
+          //           if (err) {console.log(err);}
+          //           else {console.log(camp);}
+          //         });
+          //         console.log("created new comment");
+          //       }
+          //   });
           }
     });  
     });
