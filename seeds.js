@@ -2,6 +2,8 @@ const mongoose = require("mongoose"),
       Campground = require("./models/campground"),
       Comment = require("./models/comment");
 
+mongoose.Promise = global.Promise;
+
 let data = [{
   name: "Mountain camp",
   image: "https://farm9.staticflickr.com/8673/15989950903_8185ed97c3.jpg",
@@ -35,7 +37,7 @@ function seedDB() {
           //Create a comment
           Comment.create({
             text: "This place is the best!!!",
-            author: "Harry"
+            author: "Harry Potter"
             }, function(err, comment) {
               if (err) { 
                 console.log(err);
