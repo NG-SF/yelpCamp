@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(250, 248, 242);
+}
+
+.thumbnail img {
+  width: 100%;
+}
+.thumbnail {
+  padding: 0;
+}
